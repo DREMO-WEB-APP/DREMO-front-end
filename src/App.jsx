@@ -36,14 +36,14 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useAuth();
 
   if (loading) return <div>Cargando...</div>;
-  if (!user) return <Navigate to="/login" />;
+  if (!user) return <Navigate to="/email-app/login" />;
 
   // Check if user role is allowed
   if (allowedRoles && !allowedRoles.includes(user.rol)) {
-    if (user.rol === 'ADMIN') return <Navigate to="/admin/dashboard" />;
-    if (user.rol === 'TEACHER') return <Navigate to="/teacher/dashboard" />;
-    if (user.rol === 'STUDENT') return <Navigate to="/student/dashboard" />;
-    return <Navigate to="/" />;
+    if (user.rol === 'ADMIN') return <Navigate to="/email-app/admin/dashboard" />;
+    if (user.rol === 'TEACHER') return <Navigate to="/email-app/teacher/dashboard" />;
+    if (user.rol === 'STUDENT') return <Navigate to="/email-app/student/dashboard" />;
+    return <Navigate to="/email-app/" />;
   }
 
   return children;
@@ -52,9 +52,9 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 const DashboardRedirect = () => {
   const { user } = useAuth();
 
-  if (user?.rol === 'ADMIN') return <Navigate to="/admin/dashboard" replace />;
-  if (user?.rol === 'TEACHER') return <Navigate to="/teacher/dashboard" replace />;
-  return <Navigate to="/student/dashboard" replace />;
+  if (user?.rol === 'ADMIN') return <Navigate to="/email-app/admin/dashboard" replace />;
+  if (user?.rol === 'TEACHER') return <Navigate to="/email-app/teacher/dashboard" replace />;
+  return <Navigate to="/email-app/student/dashboard" replace />;
 };
 
 function App() {
@@ -62,69 +62,69 @@ function App() {
     <Router>
       <AxiosInterceptor>
         <Routes>
-          <Route path="/" element={<Layout><WelcomePage /></Layout>} />
-          <Route path="/login" element={<Layout><LoginForm /></Layout>} />
-          <Route path="/register" element={<Layout><RegisterForm /></Layout>} />
-          <Route path="/teacher/signup/:token" element={<Layout><TeacherSignupPage /></Layout>} />
+          <Route path="/email-app" element={<Layout><WelcomePage /></Layout>} />
+          <Route path="/email-app/login" element={<Layout><LoginForm /></Layout>} />
+          <Route path="/email-app/register" element={<Layout><RegisterForm /></Layout>} />
+          <Route path="/email-app/teacher/signup/:token" element={<Layout><TeacherSignupPage /></Layout>} />
 
           {/* Legacy /dashboard route - redirects based on role */}
-          <Route path="/dashboard" element={
+          <Route path="/email-app/dashboard" element={
             <ProtectedRoute>
               <DashboardRedirect />
             </ProtectedRoute>
           } />
 
           {/* Student Dashboard */}
-          <Route path="/student/dashboard" element={
+          <Route path="/email-app/student/dashboard" element={
             <ProtectedRoute allowedRoles={['STUDENT']}>
               <StudentDashboard />
             </ProtectedRoute>
           } />
 
           {/* Admin Dashboard */}
-          <Route path="/admin/dashboard" element={
+          <Route path="/email-app/admin/dashboard" element={
             <ProtectedRoute allowedRoles={['ADMIN']}>
               <AdminDashboard />
             </ProtectedRoute>
           } />
 
           {/* Teacher Dashboard */}
-          <Route path="/teacher/dashboard" element={
+          <Route path="/email-app/teacher/dashboard" element={
             <ProtectedRoute allowedRoles={['TEACHER']}>
               <TeacherDashboard />
             </ProtectedRoute>
           } />
 
           {/* Teacher Students Page */}
-          <Route path="/teacher/students" element={
+          <Route path="/email-app/teacher/students" element={
             <ProtectedRoute allowedRoles={['TEACHER']}>
               <TeacherStudentsPage />
             </ProtectedRoute>
           } />
 
           {/* Teacher Requests Page */}
-          <Route path="/teacher/requests" element={
+          <Route path="/email-app/teacher/requests" element={
             <ProtectedRoute allowedRoles={['TEACHER']}>
               <TeacherRequestsPage />
             </ProtectedRoute>
           } />
 
           {/* Teacher Activations Page */}
-          <Route path="/teacher/activations" element={
+          <Route path="/email-app/teacher/activations" element={
             <ProtectedRoute allowedRoles={['TEACHER']}>
               <TeacherActivationsPage />
             </ProtectedRoute>
           } />
 
           {/* Universal Profile Page */}
-          <Route path="/profile" element={
+          <Route path="/email-app/profile" element={
             <ProtectedRoute>
               <ProfilePage />
             </ProtectedRoute>
           } />
 
           {/* 404 Catch All */}
-          <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
+          <Route path="/email-app/*" element={<Layout><NotFoundPage /></Layout>} />
         </Routes>
       </AxiosInterceptor>
     </Router>

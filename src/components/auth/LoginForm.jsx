@@ -13,13 +13,12 @@ const LoginForm = () => {
 
     useEffect(() => {
         if (user) {
-            // Redirect based on role if already logged in
             if (user.rol === 'ADMIN') {
-                navigate('/admin/dashboard');
+                navigate('/email-app/admin/dashboard');
             } else if (user.rol === 'TEACHER') {
-                navigate('/teacher/dashboard');
+                navigate('/email-app/teacher/dashboard');
             } else {
-                navigate('/student/dashboard');
+                navigate('/email-app/student/dashboard');
             }
         }
     }, [user, navigate]);
@@ -38,11 +37,11 @@ const LoginForm = () => {
 
             // Redirect based on role
             if (response.rol === 'ADMIN') {
-                navigate('/admin/dashboard');
+                navigate('/email-app/admin/dashboard');
             } else if (response.rol === 'TEACHER') {
-                navigate('/teacher/dashboard');
+                navigate('/email-app/teacher/dashboard');
             } else {
-                navigate('/student/dashboard');
+                navigate('/email-app/student/dashboard');
             }
         } catch (error) {
             console.error('Login failed', error);

@@ -51,7 +51,7 @@ const TeacherDashboard = () => {
                         <button
                             className="btn btn-outline"
                             style={{ width: '100%' }}
-                            onClick={() => navigate('/teacher/students')}
+                            onClick={() => navigate('/email-app/teacher/students')}
                             disabled={!profile?.instituteId}
                         >
                             Ver Directorio
@@ -69,7 +69,7 @@ const TeacherDashboard = () => {
                         <button
                             className="btn btn-primary"
                             style={{ width: '100%', backgroundColor: 'var(--warning)', borderColor: 'var(--warning)' }}
-                            onClick={() => navigate('/teacher/requests')}
+                            onClick={() => navigate('/email-app/teacher/requests')}
                             disabled={!profile?.instituteId}
                         >
                             Gestionar Solicitudes
@@ -87,7 +87,7 @@ const TeacherDashboard = () => {
                         <button
                             className="btn btn-primary"
                             style={{ width: '100%', backgroundColor: 'var(--success)', borderColor: 'var(--success)' }}
-                            onClick={() => navigate('/teacher/activations')}
+                            onClick={() => navigate('/email-app/teacher/activations')}
                             disabled={!profile?.instituteId}
                         >
                             Activar Cuentas

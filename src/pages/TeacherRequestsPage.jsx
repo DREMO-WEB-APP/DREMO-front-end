@@ -85,7 +85,7 @@ const TeacherRequestsPage = () => {
 
                 {/* Header */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-                    <button onClick={() => navigate('/teacher/dashboard')} className="btn btn-outline" style={{ padding: '0.4rem 0.8rem' }}>
+                    <button onClick={() => navigate('/email-app/teacher/dashboard')} className="btn btn-outline" style={{ padding: '0.4rem 0.8rem' }}>
                         ← Volver
                     </button>
                     <div>

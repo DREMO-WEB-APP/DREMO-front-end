@@ -17,10 +17,10 @@ const Navbar = () => {
                 Dremo
             </div>
             <div style={{ display: 'flex', gap: '1rem' }}>
-                <Link to="/login" className="btn btn-outline">
+                <Link to="/email-app/login" className="btn btn-outline">
                     Iniciar Sesión
                 </Link>
-                <Link to="/register" className="btn btn-primary">
+                <Link to="/email-app/register" className="btn btn-primary">
                     Registrarse
                 </Link>
             </div>

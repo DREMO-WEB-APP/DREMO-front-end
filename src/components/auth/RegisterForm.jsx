@@ -96,7 +96,7 @@ const RegisterForm = () => {
 
             await authService.register(payload);
             showNotification('Registro exitoso. Ahora puedes iniciar sesión.', 'success');
-            navigate('/login');
+            navigate('/email-app/login');
         } catch (error) {
             console.error('Registration error:', error);
             // Error managed by interceptor

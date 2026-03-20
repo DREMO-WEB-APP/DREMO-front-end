@@ -7,9 +7,9 @@ const NotFoundPage = () => {
 
     const handleBack = () => {
         if (user) {
-            navigate('/dashboard'); // Let the DashboardRedirect handle the correct route
+            navigate('/email-app/dashboard'); // Let the DashboardRedirect handle the correct route
         } else {
-            navigate('/');
+            navigate('/email-app/');
         }
     };
 

@@ -128,7 +128,7 @@ const TeacherSignupPage = () => {
                         El enlace que has recibido no es válido o ya expiró.<br />
                         Solicita a tu administrador que genere uno nuevo.
                     </p>
-                    <button className="btn btn-outline" style={{ width: '100%' }} onClick={() => navigate('/login')}>
+                    <button className="btn btn-outline" style={{ width: '100%' }} onClick={() => navigate('/email-app/login')}>
                         Ir al inicio de sesión
                     </button>
                 </div>
@@ -220,7 +220,7 @@ const TeacherSignupPage = () => {
                 {/* Footer link */}
                 <p style={{ textAlign: 'center', marginTop: '1.25rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
                     ¿Ya tienes cuenta?{' '}
-                    <Link to="/login" style={{ color: 'var(--primary)', fontWeight: '600', textDecoration: 'none' }}>
+                    <Link to="/email-app/login" style={{ color: 'var(--primary)', fontWeight: '600', textDecoration: 'none' }}>
                         Iniciar sesión
                     </Link>
                 </p>

@@ -109,7 +109,7 @@ const AdminDashboard = () => {
             const data = await adminService.createTeacherInvitation(selectedInstitute.id);
             const urlStr = typeof data === 'string' && data.startsWith('http')
                 ? data
-                : `${window.location.origin}/teacher/signup/${data}`;
+                : `${window.location.origin}/email-app/teacher/signup/${data}`;
             setInviteLink(urlStr);
             showNotification('Enlace de invitación generado correctamente', 'success');
         } catch (err) {

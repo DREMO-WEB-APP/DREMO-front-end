@@ -23,11 +23,11 @@ const DashboardNavbar = () => {
             }
             logout();
             showNotification('Sesión cerrada correctamente', 'info');
-            navigate('/');
+            navigate('/email-app/');
         } catch (error) {
             console.error("Logout failed", error);
             logout();
-            navigate('/');
+            navigate('/email-app/');
         }
     };
 
@@ -68,7 +68,7 @@ const DashboardNavbar = () => {
 
                 {/* Profile Avatar Button */}
                 <button
-                    onClick={() => navigate('/profile')}
+                    onClick={() => navigate('/email-app/profile')}
                     title="Ver mi perfil"
                     style={{
                         width: '38px', height: '38px', borderRadius: '50%',
