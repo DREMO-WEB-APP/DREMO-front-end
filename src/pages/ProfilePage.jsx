@@ -11,9 +11,9 @@ const roleLabel = {
 };
 
 const dashboardByRole = {
-    STUDENT: '/student/dashboard',
-    TEACHER: '/teacher/dashboard',
-    ADMIN: '/admin/dashboard',
+    STUDENT: '/email-app/student/dashboard',
+    TEACHER: '/email-app/teacher/dashboard',
+    ADMIN: '/email-app/admin/dashboard',
 };
 
 const ProfilePage = () => {
